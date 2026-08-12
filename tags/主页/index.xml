@@ -1,7 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>主页 on YH-C</title><link>https://ggjfx.github.io/tags/%E4%B8%BB%E9%A1%B5/</link><description>Recent content in 主页 on YH-C</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Wed, 12 Aug 2026 03:00:00 +0800</lastBuildDate><atom:link href="https://ggjfx.github.io/tags/%E4%B8%BB%E9%A1%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>你好，博客</title><link>https://ggjfx.github.io/posts/hello/</link><pubDate>Wed, 12 Aug 2026 03:00:00 +0800</pubDate><guid>https://ggjfx.github.io/posts/hello/</guid><description>&lt;p&gt;欢迎来到我的博客！这是第一篇测试文章。&lt;/p&gt;
-&lt;h2 id="这是什么"&gt;这是什么&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>主页 on YH-C</title>
+    <link>http://localhost:1313/tags/%E4%B8%BB%E9%A1%B5/</link>
+    <description>Recent content in 主页 on YH-C</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Wed, 12 Aug 2026 03:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E4%B8%BB%E9%A1%B5/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>你好，博客</title>
+      <link>http://localhost:1313/posts/hello/</link>
+      <pubDate>Wed, 12 Aug 2026 03:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/posts/hello/</guid>
+      <description>&lt;p&gt;欢迎来到我的博客！这是第一篇测试文章。&lt;/p&gt;
+&lt;h2 id=&#34;这是什么&#34;&gt;这是什么&lt;/h2&gt;
 &lt;p&gt;一个用 Hugo + PaperMod 搭建的个人博客，笔记直接在 Obsidian 里写，保存后一键发布到 GitHub Pages。&lt;/p&gt;
-&lt;h2 id="怎么写文章"&gt;怎么写文章&lt;/h2&gt;
+&lt;h2 id=&#34;怎么写文章&#34;&gt;怎么写文章&lt;/h2&gt;
 &lt;p&gt;在 Obsidian 里写笔记，放进 &lt;code&gt;posts&lt;/code&gt; 文件夹，文件头加上「身份证」（front matter）：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;title&lt;/code&gt;：文章标题&lt;/li&gt;
@@ -9,4 +24,7 @@
 &lt;li&gt;&lt;code&gt;draft&lt;/code&gt;：是否是草稿（&lt;code&gt;true&lt;/code&gt; 不会发布）&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;tags&lt;/code&gt;：标签列表，用来分类文章&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;保存后运行部署脚本，网站就会自动更新。&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;保存后运行部署脚本，网站就会自动更新。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
