@@ -14,18 +14,18 @@
 &lt;/ul&gt;
 &lt;p&gt;一句话：&lt;strong&gt;它让你拥有一台“永远在线、随叫随到、能干活”的私人 AI 助理&lt;/strong&gt;，而不是一个网页对话框。&lt;/p&gt;
 &lt;h2 id="二它是怎么工作的"&gt;二、它是怎么工作的&lt;/h2&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;你常用的聊天软件(Telegram / 微信 / Discord / WebChat ...)
-│
-▼
-┌─────────────────────┐
-│ OpenClaw Gateway │ ← 跑在你自己的机器/服务器上
-└─────────────────────┘
-│
-┌───────────┼───────────┐
-▼ ▼ ▼
-AI 代理 记忆系统 工具/技能
-(大模型) (长期记忆) (搜索/执行/自动化)
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;div style="text-align:center;margin:1.5em 0"&gt;
+&lt;div style="display:inline-block;max-width:100%;padding:8px 18px;border:1px solid rgba(128,128,128,.55);border-radius:10px;background:rgba(128,128,128,.08)"&gt;&lt;strong&gt;你常用的聊天软件&lt;/strong&gt;&lt;br&gt;&lt;span style="font-size:.85em;color:#8a8a8a"&gt;Telegram / 微信 / Discord / WebChat&lt;/span&gt;&lt;/div&gt;
+&lt;div style="line-height:1.4;color:#8a8a8a"&gt;↓&lt;/div&gt;
+&lt;div style="display:inline-block;max-width:100%;padding:8px 18px;border:1px solid rgba(128,128,128,.55);border-radius:10px;background:rgba(128,128,128,.08)"&gt;&lt;strong&gt;OpenClaw Gateway&lt;/strong&gt;&lt;br&gt;&lt;span style="font-size:.85em;color:#8a8a8a"&gt;跑在你自己的机器/服务器上&lt;/span&gt;&lt;/div&gt;
+&lt;div style="line-height:1.4;color:#8a8a8a"&gt;↓&lt;/div&gt;
+&lt;div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap"&gt;
+&lt;div style="padding:6px 14px;border:1px solid rgba(128,128,128,.55);border-radius:10px;background:rgba(128,128,128,.08)"&gt;AI 代理&lt;br&gt;&lt;span style="font-size:.85em;color:#8a8a8a"&gt;（大模型）&lt;/span&gt;&lt;/div&gt;
+&lt;div style="padding:6px 14px;border:1px solid rgba(128,128,128,.55);border-radius:10px;background:rgba(128,128,128,.08)"&gt;记忆系统&lt;br&gt;&lt;span style="font-size:.85em;color:#8a8a8a"&gt;（长期记忆）&lt;/span&gt;&lt;/div&gt;
+&lt;div style="padding:6px 14px;border:1px solid rgba(128,128,128,.55);border-radius:10px;background:rgba(128,128,128,.08)"&gt;工具/技能&lt;br&gt;&lt;span style="font-size:.85em;color:#8a8a8a"&gt;（搜索/执行/自动化）&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Gateway&lt;/strong&gt; 是单一入口，负责会话、路由、渠道连接；&lt;/li&gt;
 &lt;li&gt;你在手机聊天软件里发消息 → 网关把消息交给 AI 代理 → 代理可以调用工具（搜索网页、执行命令、读文件）、查询记忆 → 把结果发回你的聊天窗口；&lt;/li&gt;
 &lt;li&gt;默认配置下，私聊共享同一个“主会话”，每个群聊独立会话，互不干扰。&lt;/li&gt;
