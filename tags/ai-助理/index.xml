@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>AI 助理 on YH-C</title><link>https://ggjfx.github.io/tags/ai-%E5%8A%A9%E7%90%86/</link><description>Recent content in AI 助理 on YH-C</description><generator>Hugo</generator><language>zh-cn</language><copyright>2026 YH-C · 记录学习,分享踩坑</copyright><lastBuildDate>Thu, 13 Aug 2026 19:11:00 +0800</lastBuildDate><atom:link href="https://ggjfx.github.io/tags/ai-%E5%8A%A9%E7%90%86/index.xml" rel="self" type="application/rss+xml"/><item><title>部署 OpenClaw 有什么用？——给自己装一个“24 小时在线”的 AI 助理</title><link>https://ggjfx.github.io/posts/%E9%83%A8%E7%BD%B2openclaw%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</link><pubDate>Thu, 13 Aug 2026 19:11:00 +0800</pubDate><guid>https://ggjfx.github.io/posts/%E9%83%A8%E7%BD%B2openclaw%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;一句话版本：OpenClaw 是一个开源的、自托管的 AI 助理网关。部署它之后，你可以把 Telegram、微信、Discord、WhatsApp、飞书等日常聊天软件，变成通往一个“有记忆、会动手、能自动化”的 AI 代理的入口——数据掌握在自己手里，模型随便换，还能自己写技能扩展它。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="一openclaw-是什么"&gt;一、OpenClaw 是什么？&lt;/h2&gt;
+&lt;p&gt;OpenClaw 是一个 &lt;strong&gt;MIT 协议开源的、自托管的 AI 代理网关（Gateway）&lt;/strong&gt;，运行在你的电脑或服务器上。它的核心作用可以用一句话概括：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;把“最强的 AI 模型”和“你日常使用的聊天软件”连接起来，并让这个 AI 拥有记忆、工具和自动化能力。&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;自托管&lt;/strong&gt;：跑在你自己的硬件上，数据不出门，规则你定；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;多渠道&lt;/strong&gt;：一个网关进程，同时接入 Telegram、Discord、WhatsApp、Signal、Slack、iMessage、Matrix、飞书、QQ 机器人、微信（社区插件）等几十种渠道；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Agent 原生&lt;/strong&gt;：不是简单的“聊天机器人”，而是带工具调用、会话隔离、持久记忆、多代理路由的完整代理运行时；&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;开源免费&lt;/strong&gt;：MIT 许可，社区驱动，官方文档完善。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;一句话：&lt;strong&gt;它让你拥有一台“永远在线、随叫随到、能干活”的私人 AI 助理&lt;/strong&gt;，而不是一个网页对话框。&lt;/p&gt;
+&lt;h2 id="二它是怎么工作的"&gt;二、它是怎么工作的&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;你常用的聊天软件(Telegram / 微信 / Discord / WebChat ...)
+│
+▼
+┌─────────────────────┐
+│ OpenClaw Gateway │ ← 跑在你自己的机器/服务器上
+└─────────────────────┘
+│
+┌───────────┼───────────┐
+▼ ▼ ▼
+AI 代理 记忆系统 工具/技能
+(大模型) (长期记忆) (搜索/执行/自动化)
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Gateway&lt;/strong&gt; 是单一入口，负责会话、路由、渠道连接；&lt;/li&gt;
+&lt;li&gt;你在手机聊天软件里发消息 → 网关把消息交给 AI 代理 → 代理可以调用工具（搜索网页、执行命令、读文件）、查询记忆 → 把结果发回你的聊天窗口；&lt;/li&gt;
+&lt;li&gt;默认配置下，私聊共享同一个“主会话”，每个群聊独立会话，互不干扰。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="三部署它能得到什么核心价值"&gt;三、部署它能得到什么——核心价值&lt;/h2&gt;
+&lt;h3 id="1-一个真正属于你的-ai-助理"&gt;1. 一个真正“属于你”的 AI 助理&lt;/h3&gt;
+&lt;p&gt;市面上大多数 AI 助手是“租来的”：数据存在别人服务器上，人格和记忆无法定制。OpenClaw 部署在你自己的机器上，你可以：&lt;/p&gt;</description></item></channel></rss>
