@@ -133,4 +133,57 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id="-需要购买的正版纸质电子书强烈推荐"&gt;📚 需要购买的正版纸质/电子书（强烈推荐）&lt;/h2&gt;
-&lt;p&gt;以下经典书&lt;strong&gt;无免费授权版本&lt;/strong&gt;，请支持正版（微信读书/京东读书/出版社渠道都有电子版）：&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;以下经典书&lt;strong&gt;无免费授权版本&lt;/strong&gt;，请支持正版（微信读书/京东读书/出版社渠道都有电子版）：&lt;/p&gt;</description></item><item><title/><link>https://ggjfx.github.io/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/%E8%BF%90%E7%BB%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://ggjfx.github.io/%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/%E8%BF%90%E7%BB%B4%E5%B7%A5%E7%A8%8B%E5%B8%88%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/</guid><description>&lt;h1 id="-运维工程师基础学习资料"&gt;🛠️ 运维工程师基础学习资料&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;🎯 面向零基础 / 刚入门，按学习顺序整理
+学完这份路线，可继续进阶 &lt;strong&gt;K8s、CI/CD、自动化运维&lt;/strong&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id="-学习路线总览"&gt;🧭 学习路线总览&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;🔹 Linux 命令 → 🌐 网络 → 🐚 Shell 脚本 → 🌍 Nginx/Web
+→ 🗄️ 数据库 → 🐳 Docker → 🌿 Git → 📊 监控 → ☁️ 云计算
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id="1-操作系统基础-最核心"&gt;1️⃣ 操作系统基础（⭐ 最核心）&lt;/h2&gt;
+&lt;h3 id="-linux必学"&gt;🐧 Linux（必学）&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Ubuntu / CentOS / Rocky Linux 任选一种上手&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;分类&lt;/th&gt;
+&lt;th&gt;命令&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;📁 文件与目录&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ls&lt;/code&gt; &lt;code&gt;cd&lt;/code&gt; &lt;code&gt;cp&lt;/code&gt; &lt;code&gt;mv&lt;/code&gt; &lt;code&gt;rm&lt;/code&gt; &lt;code&gt;mkdir&lt;/code&gt; &lt;code&gt;find&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;✏️ 查看与编辑&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cat&lt;/code&gt; &lt;code&gt;less&lt;/code&gt; &lt;code&gt;vim&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔐 权限管理&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;chmod&lt;/code&gt; &lt;code&gt;chown&lt;/code&gt; &lt;code&gt;chgrp&lt;/code&gt;、用户与组&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;⚙️ 进程管理&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ps&lt;/code&gt; &lt;code&gt;top&lt;/code&gt; &lt;code&gt;htop&lt;/code&gt; &lt;code&gt;kill&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🌐 网络&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ip&lt;/code&gt; &lt;code&gt;ss&lt;/code&gt; &lt;code&gt;ping&lt;/code&gt; &lt;code&gt;curl&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;🔗 软链接&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;ln -s&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;⏰ 定时任务&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;cron&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;📚 &lt;strong&gt;推荐书籍：&lt;/strong&gt; 《鸟哥的 Linux 私房菜》（经典中文入门）&lt;/p&gt;</description></item></channel></rss>
