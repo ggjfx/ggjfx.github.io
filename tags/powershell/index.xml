@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PowerShell on YH-C</title><link>https://ggjfx.github.io/tags/powershell/</link><description>Recent content in PowerShell on YH-C</description><generator>Hugo</generator><language>zh-cn</language><copyright>2026 YH-C · 记录学习,分享踩坑</copyright><lastBuildDate>Sat, 29 Aug 2026 05:30:00 +0800</lastBuildDate><atom:link href="https://ggjfx.github.io/tags/powershell/index.xml" rel="self" type="application/rss+xml"/><item><title>不花钱做 OCR：用 Windows 自带的识别引擎批量识别网课截图</title><link>https://ggjfx.github.io/posts/%E4%B8%8D%E8%8A%B1%E9%92%B1%E5%81%9Aocr-windows%E8%87%AA%E5%B8%A6%E8%AF%86%E5%88%AB%E5%BC%95%E6%93%8E/</link><pubDate>Sat, 29 Aug 2026 05:30:00 +0800</pubDate><guid>https://ggjfx.github.io/posts/%E4%B8%8D%E8%8A%B1%E9%92%B1%E5%81%9Aocr-windows%E8%87%AA%E5%B8%A6%E8%AF%86%E5%88%AB%E5%BC%95%E6%93%8E/</guid><description>&lt;h2 id="起因ai-看不了图"&gt;起因：AI 看不了图&lt;/h2&gt;
+&lt;p&gt;我上网课习惯截图，一节课下来十几张。我想让 AI 帮我把截图整理成笔记，结果卡在第一步：&lt;strong&gt;我用的模型是纯文本的，看不了图片。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;思路很自然：那就先 OCR 成文字，再喂给它。&lt;/p&gt;
+&lt;p&gt;但我不想为这个花钱、也不想传到别人的服务器上（截图里有我的账号界面）。查了一圈发现：&lt;strong&gt;Windows 系统本身就自带 OCR 引擎&lt;/strong&gt;，中文识别是现成的，一分钱不用花，也不联网。&lt;/p&gt;
+&lt;h2 id="windows-自带-ocr-怎么调"&gt;Windows 自带 OCR 怎么调&lt;/h2&gt;
+&lt;p&gt;系统里有个 WinRT 的 OCR 接口（&lt;code&gt;Windows.Media.Ocr&lt;/code&gt;），PowerShell 可以直接调。最关键的是&lt;strong&gt;类型加载那一行&lt;/strong&gt;，不写的话后面全报错：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[Windows.Globalization.Language, Windows.Foundation, ContentType = WindowsRuntime] | Out-Null
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$lang = New-Object Windows.Globalization.Language &lt;span style="color:#e6db74"&gt;&amp;#39;zh-Hans-CN&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$engine = [&lt;span style="color:#66d9ef"&gt;Windows.Media.Ocr.OcrEngine&lt;/span&gt;]::TryCreateFromLanguage($lang)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;zh-Hans-CN&lt;/code&gt; 是简体中文引擎。想知道你机器上有哪些语言可用，可以列 &lt;code&gt;AvailableRecognizerLanguages&lt;/code&gt;——一般装了中文语言包就有。&lt;/p&gt;
+&lt;p&gt;然后就是：图片 → SoftwareBitmap → &lt;code&gt;RecognizeAsync&lt;/code&gt; → 拿 &lt;code&gt;Text&lt;/code&gt;。异步调用在 PowerShell 里稍微绕一点，包一层等待就行。&lt;/p&gt;
+&lt;h3 id="提高识别率的一个笨办法放大-2-倍"&gt;提高识别率的一个笨办法：放大 2 倍&lt;/h3&gt;
+&lt;p&gt;第一次直接识别，效果一般。后来我在 OCR 之前&lt;strong&gt;先把图片等比放大 2 倍&lt;/strong&gt;（GDI+ 双三次插值），识别率明显提升。&lt;/p&gt;
+&lt;p&gt;原理不难理解：OCR 引擎对小字号有下限，网课截图里的正文本来就不大，放大等于给它喂更清楚的笔画。代价是慢一点，但 17 张图也就几十秒。&lt;/p&gt;
+&lt;p&gt;搞定之后，17 张直播截图批量跑出 17 个 txt 文件，中文正文基本能用。&lt;/p&gt;
+&lt;h2 id="真正的难题超长截图"&gt;真正的难题：超长截图&lt;/h2&gt;
+&lt;p&gt;比这个麻烦得多的是另一批图——我把和 AI 的对话截成了&lt;strong&gt;长截图&lt;/strong&gt;，尺寸是 &lt;strong&gt;560 宽 × 14000~23000 高&lt;/strong&gt;。&lt;/p&gt;</description></item><item><title>用 PowerShell 把 AI 生成的复习资料写进 OneNote（踩坑全记录）</title><link>https://ggjfx.github.io/posts/%E7%94%A8powershell%E6%8A%8A%E8%B5%84%E6%96%99%E5%86%99%E8%BF%9Bonenote/</link><pubDate>Sat, 29 Aug 2026 05:20:00 +0800</pubDate><guid>https://ggjfx.github.io/posts/%E7%94%A8powershell%E6%8A%8A%E8%B5%84%E6%96%99%E5%86%99%E8%BF%9Bonenote/</guid><description>&lt;h2 id="起因"&gt;起因&lt;/h2&gt;
+&lt;p&gt;我在准备专升本，笔记用的是 OneNote 2016。AI 帮我整理的知识点、出的试卷，一直是生成 HTML 和 PDF——但资料躺在文件夹里，跟我平时看笔记的地方是两个世界。&lt;/p&gt;
+&lt;p&gt;于是有了这个需求：&lt;strong&gt;让 AI 直接把内容写进 OneNote 的分区里&lt;/strong&gt;，我打开笔记本就能看到。&lt;/p&gt;
+&lt;p&gt;最后是做成了：高数分区下面写进去了 &lt;strong&gt;2 页试卷 + 13 页知识点&lt;/strong&gt;（总目录 + 12 章），每章还做成了左右双栏。但过程相当曲折，这篇把坑全记下来，下次不用再撞一遍。&lt;/p&gt;
+&lt;h2 id="技术路线com-接口"&gt;技术路线：COM 接口&lt;/h2&gt;
+&lt;p&gt;OneNote 2016 提供 COM 接口，PowerShell 里一行就能连上：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$on = New-Object -ComObject OneNote.Application
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;能读层级、建页面、写内容、调页面顺序。&lt;strong&gt;注意这是 OneNote 2016 桌面版才有的&lt;/strong&gt;，UWP 那个&amp;quot;OneNote for Windows 10&amp;quot;没有这套接口。&lt;/p&gt;
+&lt;h3 id="坑-0onenote-没开着连不上"&gt;坑 0：OneNote 没开着，连不上&lt;/h3&gt;
+&lt;p&gt;直接 &lt;code&gt;New-Object&lt;/code&gt; 会报 &lt;code&gt;CO_E_SERVER_EXEC_FAILURE&lt;/code&gt;。解决办法是先启动进程再等一会儿：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Start-Process &lt;span style="color:#e6db74"&gt;&amp;#34;C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Start-Sleep -Seconds &lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;30 秒不算夸张，我试过 10 秒还是连不上。&lt;/p&gt;
+&lt;h2 id="坑-1最惨的一个别对文件夹调-openhierarchy"&gt;坑 1（最惨的一个）：别对文件夹调 OpenHierarchy&lt;/h2&gt;
+&lt;p&gt;我一开始的思路很自然：笔记本就是个文件夹，那我遍历文件夹、找到 &lt;code&gt;.one&lt;/code&gt; 文件、逐个打开不就行了？&lt;/p&gt;
+&lt;p&gt;于是我对笔记本文件夹调了 &lt;code&gt;OpenHierarchy&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OneNote 的反应是：它把这个文件夹当成了一个&amp;quot;新笔记本&amp;quot;，然后在里面自动创建了一个默认分区 &lt;code&gt;打开笔记本.one&lt;/code&gt;。&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

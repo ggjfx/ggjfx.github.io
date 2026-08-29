@@ -1,0 +1,101 @@
+<!doctype html><html lang=zh-cn dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>找一本 2026 年刚出的书，我试了十个渠道 | YH-C</title><meta name=keywords content="找资料,电子书,Calibre"><meta name=description content='起因
+备考要用一本 2026 年新出的英语书。我给 AI 助手下的指令很粗暴：&ldquo;我只要结果，能拿到这本书就行。&rdquo;
+结果这件事花的时间远超预期，而且最后的答案跟我一开始设想的完全不一样。整个过程挺有代表性，记下来。
+第一轮：搜索引擎，全军覆没
+先说搜索这一层的实测结果（同一天、同一台机器、同一个网络）：
+
+	
+			
+					渠道
+					结果
+			
+	
+	
+			
+					内置搜索工具
+					一直失败 / 超时
+			
+			
+					Bing
+					结果被过滤，返回的内容跟书完全无关
+			
+			
+					Google
+					访问受限
+			
+			
+					百度
+					访问受限
+			
+			
+					360 搜索
+					访问受限
+			
+			
+					搜狗（sogou.com）
+					✅ 能用
+			
+			
+					B 站搜索 API
+					HTTP 412，被风控
+			
+	
+
+所以有了一条经验：在我这个网络环境下，用命令行抓搜索结果，搜狗是最稳的那个。 已经记进工具笔记了，以后找东西先走搜狗。
+第二轮：影子图书馆，全部连不上
+那几个大家都知道的"什么书都有"的站点，我都试了。curl 返回的是 HTTP 000 —— 连接根本没建立起来，不是 404 也不是 403，就是通不了。
+三个站，同样的结果。这条路直接封死。
+（顺便说：即使能连上，2026 年 5 月才出的书，这类站点上也基本不会有。扫描、上传、流传是需要时间的，新书通常要等上一两年。）
+第三轮：确认书的身份
+这一步本来该更早做。我让它把书的信息核准了一遍：
+
+书名、作者、出版年
+ISBN（这个最关键）
+豆瓣条目号
+
+结果发现同一系列还有个六级版本，ISBN 和条目号都不一样。如果不核 ISBN，很可能后面费半天劲拿到的是另一本。
+教训：找书第一步是确认 ISBN，不是先搜"书名 + pdf"。
+第四轮：绕开"电子书"这个执念
+搜到最后，找到的可行路子是三条，一条比一条正规：
+
+
+出版方和背单词 app 的官方合作
+这本书跟一个常用的背单词 app 有官方合作，书里的全部单词（含派生词）可以通过官方词书导入的方式在 app 里学。免费，而且内容跟书是一致的。这是我最后采用的方案。'><meta name=author content><link rel=canonical href=https://ggjfx.github.io/posts/%E6%89%BE%E4%B8%80%E6%9C%AC%E5%88%9A%E5%87%BA%E7%9A%84%E4%B9%A6%E6%88%91%E8%AF%95%E4%BA%86%E5%8D%81%E4%B8%AA%E6%B8%A0%E9%81%93/><link crossorigin=anonymous href=/assets/css/stylesheet.css rel="preload stylesheet" as=style><link rel=icon href=https://ggjfx.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://ggjfx.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://ggjfx.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://ggjfx.github.io/apple-touch-icon.png><link rel=mask-icon href=https://ggjfx.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=zh-cn href=https://ggjfx.github.io/posts/%E6%89%BE%E4%B8%80%E6%9C%AC%E5%88%9A%E5%87%BA%E7%9A%84%E4%B9%A6%E6%88%91%E8%AF%95%E4%BA%86%E5%8D%81%E4%B8%AA%E6%B8%A0%E9%81%93/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><meta property="og:url" content="https://ggjfx.github.io/posts/%E6%89%BE%E4%B8%80%E6%9C%AC%E5%88%9A%E5%87%BA%E7%9A%84%E4%B9%A6%E6%88%91%E8%AF%95%E4%BA%86%E5%8D%81%E4%B8%AA%E6%B8%A0%E9%81%93/"><meta property="og:site_name" content="YH-C"><meta property="og:title" content="找一本 2026 年刚出的书，我试了十个渠道"><meta property="og:description" content='起因 备考要用一本 2026 年新出的英语书。我给 AI 助手下的指令很粗暴：“我只要结果，能拿到这本书就行。”
+结果这件事花的时间远超预期，而且最后的答案跟我一开始设想的完全不一样。整个过程挺有代表性，记下来。
+第一轮：搜索引擎，全军覆没 先说搜索这一层的实测结果（同一天、同一台机器、同一个网络）：
+渠道 结果 内置搜索工具 一直失败 / 超时 Bing 结果被过滤，返回的内容跟书完全无关 Google 访问受限 百度 访问受限 360 搜索 访问受限 搜狗（sogou.com） ✅ 能用 B 站搜索 API HTTP 412，被风控 所以有了一条经验：在我这个网络环境下，用命令行抓搜索结果，搜狗是最稳的那个。 已经记进工具笔记了，以后找东西先走搜狗。
+第二轮：影子图书馆，全部连不上 那几个大家都知道的"什么书都有"的站点，我都试了。curl 返回的是 HTTP 000 —— 连接根本没建立起来，不是 404 也不是 403，就是通不了。
+三个站，同样的结果。这条路直接封死。
+（顺便说：即使能连上，2026 年 5 月才出的书，这类站点上也基本不会有。扫描、上传、流传是需要时间的，新书通常要等上一两年。）
+第三轮：确认书的身份 这一步本来该更早做。我让它把书的信息核准了一遍：
+书名、作者、出版年 ISBN（这个最关键） 豆瓣条目号 结果发现同一系列还有个六级版本，ISBN 和条目号都不一样。如果不核 ISBN，很可能后面费半天劲拿到的是另一本。
+教训：找书第一步是确认 ISBN，不是先搜"书名 + pdf"。
+第四轮：绕开"电子书"这个执念 搜到最后，找到的可行路子是三条，一条比一条正规：
+出版方和背单词 app 的官方合作 这本书跟一个常用的背单词 app 有官方合作，书里的全部单词（含派生词）可以通过官方词书导入的方式在 app 里学。免费，而且内容跟书是一致的。这是我最后采用的方案。'><meta property="og:locale" content="zh_cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-08-29T05:45:00+08:00"><meta property="article:modified_time" content="2026-08-29T05:45:00+08:00"><meta property="article:tag" content="找资料"><meta property="article:tag" content="电子书"><meta property="article:tag" content="Calibre"><meta name=twitter:card content="summary"><meta name=twitter:title content="找一本 2026 年刚出的书，我试了十个渠道"><meta name=twitter:description content='起因 备考要用一本 2026 年新出的英语书。我给 AI 助手下的指令很粗暴：“我只要结果，能拿到这本书就行。”
+结果这件事花的时间远超预期，而且最后的答案跟我一开始设想的完全不一样。整个过程挺有代表性，记下来。
+第一轮：搜索引擎，全军覆没 先说搜索这一层的实测结果（同一天、同一台机器、同一个网络）：
+渠道 结果 内置搜索工具 一直失败 / 超时 Bing 结果被过滤，返回的内容跟书完全无关 Google 访问受限 百度 访问受限 360 搜索 访问受限 搜狗（sogou.com） ✅ 能用 B 站搜索 API HTTP 412，被风控 所以有了一条经验：在我这个网络环境下，用命令行抓搜索结果，搜狗是最稳的那个。 已经记进工具笔记了，以后找东西先走搜狗。
+第二轮：影子图书馆，全部连不上 那几个大家都知道的"什么书都有"的站点，我都试了。curl 返回的是 HTTP 000 —— 连接根本没建立起来，不是 404 也不是 403，就是通不了。
+三个站，同样的结果。这条路直接封死。
+（顺便说：即使能连上，2026 年 5 月才出的书，这类站点上也基本不会有。扫描、上传、流传是需要时间的，新书通常要等上一两年。）
+第三轮：确认书的身份 这一步本来该更早做。我让它把书的信息核准了一遍：
+书名、作者、出版年 ISBN（这个最关键） 豆瓣条目号 结果发现同一系列还有个六级版本，ISBN 和条目号都不一样。如果不核 ISBN，很可能后面费半天劲拿到的是另一本。
+教训：找书第一步是确认 ISBN，不是先搜"书名 + pdf"。
+第四轮：绕开"电子书"这个执念 搜到最后，找到的可行路子是三条，一条比一条正规：
+出版方和背单词 app 的官方合作 这本书跟一个常用的背单词 app 有官方合作，书里的全部单词（含派生词）可以通过官方词书导入的方式在 app 里学。免费，而且内容跟书是一致的。这是我最后采用的方案。'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"文章","item":"https://ggjfx.github.io/posts/"},{"@type":"ListItem","position":2,"name":"找一本 2026 年刚出的书，我试了十个渠道","item":"https://ggjfx.github.io/posts/%E6%89%BE%E4%B8%80%E6%9C%AC%E5%88%9A%E5%87%BA%E7%9A%84%E4%B9%A6%E6%88%91%E8%AF%95%E4%BA%86%E5%8D%81%E4%B8%AA%E6%B8%A0%E9%81%93/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"找一本 2026 年刚出的书，我试了十个渠道","name":"找一本 2026 年刚出的书，我试了十个渠道","description":"起因 备考要用一本 2026 年新出的英语书。我给 AI 助手下的指令很粗暴：\u0026ldquo;我只要结果，能拿到这本书就行。\u0026rdquo;\n结果这件事花的时间远超预期，而且最后的答案跟我一开始设想的完全不一样。整个过程挺有代表性，记下来。\n第一轮：搜索引擎，全军覆没 先说搜索这一层的实测结果（同一天、同一台机器、同一个网络）：\n渠道 结果 内置搜索工具 一直失败 / 超时 Bing 结果被过滤，返回的内容跟书完全无关 Google 访问受限 百度 访问受限 360 搜索 访问受限 搜狗（sogou.com） ✅ 能用 B 站搜索 API HTTP 412，被风控 所以有了一条经验：在我这个网络环境下，用命令行抓搜索结果，搜狗是最稳的那个。 已经记进工具笔记了，以后找东西先走搜狗。\n第二轮：影子图书馆，全部连不上 那几个大家都知道的\u0026quot;什么书都有\u0026quot;的站点，我都试了。curl 返回的是 HTTP 000 —— 连接根本没建立起来，不是 404 也不是 403，就是通不了。\n三个站，同样的结果。这条路直接封死。\n（顺便说：即使能连上，2026 年 5 月才出的书，这类站点上也基本不会有。扫描、上传、流传是需要时间的，新书通常要等上一两年。）\n第三轮：确认书的身份 这一步本来该更早做。我让它把书的信息核准了一遍：\n书名、作者、出版年 ISBN（这个最关键） 豆瓣条目号 结果发现同一系列还有个六级版本，ISBN 和条目号都不一样。如果不核 ISBN，很可能后面费半天劲拿到的是另一本。\n教训：找书第一步是确认 ISBN，不是先搜\u0026quot;书名 + pdf\u0026quot;。\n第四轮：绕开\u0026quot;电子书\u0026quot;这个执念 搜到最后，找到的可行路子是三条，一条比一条正规：\n出版方和背单词 app 的官方合作 这本书跟一个常用的背单词 app 有官方合作，书里的全部单词（含派生词）可以通过官方词书导入的方式在 app 里学。免费，而且内容跟书是一致的。这是我最后采用的方案。\n","keywords":["找资料","电子书","Calibre"],"articleBody":"起因 备考要用一本 2026 年新出的英语书。我给 AI 助手下的指令很粗暴：“我只要结果，能拿到这本书就行。”\n结果这件事花的时间远超预期，而且最后的答案跟我一开始设想的完全不一样。整个过程挺有代表性，记下来。\n第一轮：搜索引擎，全军覆没 先说搜索这一层的实测结果（同一天、同一台机器、同一个网络）：\n渠道 结果 内置搜索工具 一直失败 / 超时 Bing 结果被过滤，返回的内容跟书完全无关 Google 访问受限 百度 访问受限 360 搜索 访问受限 搜狗（sogou.com） ✅ 能用 B 站搜索 API HTTP 412，被风控 所以有了一条经验：在我这个网络环境下，用命令行抓搜索结果，搜狗是最稳的那个。 已经记进工具笔记了，以后找东西先走搜狗。\n第二轮：影子图书馆，全部连不上 那几个大家都知道的\"什么书都有\"的站点，我都试了。curl 返回的是 HTTP 000 —— 连接根本没建立起来，不是 404 也不是 403，就是通不了。\n三个站，同样的结果。这条路直接封死。\n（顺便说：即使能连上，2026 年 5 月才出的书，这类站点上也基本不会有。扫描、上传、流传是需要时间的，新书通常要等上一两年。）\n第三轮：确认书的身份 这一步本来该更早做。我让它把书的信息核准了一遍：\n书名、作者、出版年 ISBN（这个最关键） 豆瓣条目号 结果发现同一系列还有个六级版本，ISBN 和条目号都不一样。如果不核 ISBN，很可能后面费半天劲拿到的是另一本。\n教训：找书第一步是确认 ISBN，不是先搜\"书名 + pdf\"。\n第四轮：绕开\"电子书\"这个执念 搜到最后，找到的可行路子是三条，一条比一条正规：\n出版方和背单词 app 的官方合作 这本书跟一个常用的背单词 app 有官方合作，书里的全部单词（含派生词）可以通过官方词书导入的方式在 app 里学。免费，而且内容跟书是一致的。这是我最后采用的方案。\n出版社/编者的公众号 同系列的另一本（考研版）有过\"回复关键词领配套资料\"的活动。这类官方渠道通常发的是配套讲义、勘误、音频，未必是整本书，但胜在正规。\n直接买正版 京东、苏宁都有货。说实话我最后也建议自己：要长期用的书，买纸质的。\n结论写在这里：\n一本刚出的新书，网上没有公开流传的免费 PDF，这不是\"你没找到\"，而是\"确实没有\"。 与其继续挖，不如换个方式拿到同样的内容。\n附带收获：扫描版 PDF 转 EPUB 过程中还有个插曲。我本地有一份同名的扫描版 PDF：358MB、368 页。我想在手机上看，就试着转成 EPUB。\n用 Calibre 自带的命令行工具（装了 Calibre 就有）：\nebook-convert \"输入.pdf\" \"输出.epub\" 出来 336MB 的 EPUB，能打开。但有两件事必须说清楚：\n1. 扫描版转 EPUB 只是\"图片装进 EPUB\"。 原 PDF 是纯扫描件，没有文字层。所以转出来的 EPUB 每一页还是图片——不能选字、不能搜索、不能调字号、不能重排。在手机上看跟看 PDF 没本质区别，只是文件格式变了。\n想要真正的文字版，必须先对 368 页做 OCR。这活儿量不小，我暂时没做。\n2. --pdf-add-toc 参数在我这个版本会直接报错，去掉就正常了。Calibre 的命令行参数各版本有差异，报错先试试删参数。\n我从这件事学到的 第一，“我只要结果\"这个指令，前提是结果真的存在。 我一开始的假设是\"网上肯定有，只是要会找”。实际上对一本三个月前出版的书，这个假设是错的。先判断\"有没有\"，再花时间\"怎么找\"。\n第二，先核 ISBN。 不然你可能在找一本长得很像的另一本书。\n第三，别被格式绑死。 我要的其实是\"书里的单词\"，不是\"一个 PDF 文件\"。想清楚这一点，官方 app 导入这条路立刻就浮出来了——而且比 PDF 好用（有发音、有复习计划、能同步）。\n第四，扫描版 ≠ 电子书。 没文字层的 PDF，转成任何格式都还是图片。这是我这次最实用的一条认知。\n小结 搜索受限时，命令行抓搜狗最稳； 影子图书馆在我这儿全部不通，而且新书本来就不会有； 找书第一步核 ISBN； 优先找官方渠道（出版方合作、公众号、买正版），比死磕 PDF 快； Calibre ebook-convert 能转格式，但转不出文字层。 ","wordCount":"149","inLanguage":"zh-cn","datePublished":"2026-08-29T05:45:00+08:00","dateModified":"2026-08-29T05:45:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://ggjfx.github.io/posts/%E6%89%BE%E4%B8%80%E6%9C%AC%E5%88%9A%E5%87%BA%E7%9A%84%E4%B9%A6%E6%88%91%E8%AF%95%E4%BA%86%E5%8D%81%E4%B8%AA%E6%B8%A0%E9%81%93/"},"publisher":{"@type":"Organization","name":"YH-C","logo":{"@type":"ImageObject","url":"https://ggjfx.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=header-nav><div class=logo><a href=/ accesskey=h title="YH-C (Alt + H)">YH-C</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=/ title=首页><span>首页</span></a></li><li><a href=/posts/ title=文章><span>文章</span></a></li><li><a href=/tags/ title=标签><span>标签</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><h1 class="post-title entry-hint-parent">找一本 2026 年刚出的书，我试了十个渠道</h1><div class=post-meta><span title='2026-08-29 05:45:00 +0800 CST'>2026年8月29日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>149 字</span></div></header><details class=toc open><summary accesskey=c title="(Alt + C)"><span class=title>目录</span></summary><div class=inner><ul><li><a href=#%e8%b5%b7%e5%9b%a0 aria-label=起因>起因</a></li><li><a href=#%e7%ac%ac%e4%b8%80%e8%bd%ae%e6%90%9c%e7%b4%a2%e5%bc%95%e6%93%8e%e5%85%a8%e5%86%9b%e8%a6%86%e6%b2%a1 aria-label=第一轮：搜索引擎，全军覆没>第一轮：搜索引擎，全军覆没</a></li><li><a href=#%e7%ac%ac%e4%ba%8c%e8%bd%ae%e5%bd%b1%e5%ad%90%e5%9b%be%e4%b9%a6%e9%a6%86%e5%85%a8%e9%83%a8%e8%bf%9e%e4%b8%8d%e4%b8%8a aria-label=第二轮：影子图书馆，全部连不上>第二轮：影子图书馆，全部连不上</a></li><li><a href=#%e7%ac%ac%e4%b8%89%e8%bd%ae%e7%a1%ae%e8%ae%a4%e4%b9%a6%e7%9a%84%e8%ba%ab%e4%bb%bd aria-label=第三轮：确认书的身份>第三轮：确认书的身份</a></li><li><a href=#%e7%ac%ac%e5%9b%9b%e8%bd%ae%e7%bb%95%e5%bc%80%e7%94%b5%e5%ad%90%e4%b9%a6%e8%bf%99%e4%b8%aa%e6%89%a7%e5%bf%b5 aria-label='第四轮：绕开"电子书"这个执念'>第四轮：绕开"电子书"这个执念</a></li><li><a href=#%e9%99%84%e5%b8%a6%e6%94%b6%e8%8e%b7%e6%89%ab%e6%8f%8f%e7%89%88-pdf-%e8%bd%ac-epub aria-label="附带收获：扫描版 PDF 转 EPUB">附带收获：扫描版 PDF 转 EPUB</a></li><li><a href=#%e6%88%91%e4%bb%8e%e8%bf%99%e4%bb%b6%e4%ba%8b%e5%ad%a6%e5%88%b0%e7%9a%84 aria-label=我从这件事学到的>我从这件事学到的</a></li><li><a href=#%e5%b0%8f%e7%bb%93 aria-label=小结>小结</a></li></ul></div></details><div class="post-content md-content"><h2 id=起因>起因<a hidden class=anchor aria-hidden=true href=#起因>#</a></h2><p>备考要用一本 2026 年新出的英语书。我给 AI 助手下的指令很粗暴：<strong>&ldquo;我只要结果，能拿到这本书就行。&rdquo;</strong></p><p>结果这件事花的时间远超预期，而且最后的答案跟我一开始设想的完全不一样。整个过程挺有代表性，记下来。</p><h2 id=第一轮搜索引擎全军覆没>第一轮：搜索引擎，全军覆没<a hidden class=anchor aria-hidden=true href=#第一轮搜索引擎全军覆没>#</a></h2><p>先说搜索这一层的实测结果（同一天、同一台机器、同一个网络）：</p><table><thead><tr><th>渠道</th><th>结果</th></tr></thead><tbody><tr><td>内置搜索工具</td><td>一直失败 / 超时</td></tr><tr><td>Bing</td><td>结果被过滤，返回的内容跟书完全无关</td></tr><tr><td>Google</td><td>访问受限</td></tr><tr><td>百度</td><td>访问受限</td></tr><tr><td>360 搜索</td><td>访问受限</td></tr><tr><td><strong>搜狗（sogou.com）</strong></td><td>✅ <strong>能用</strong></td></tr><tr><td>B 站搜索 API</td><td>HTTP 412，被风控</td></tr></tbody></table><p>所以有了一条经验：<strong>在我这个网络环境下，用命令行抓搜索结果，搜狗是最稳的那个。</strong> 已经记进工具笔记了，以后找东西先走搜狗。</p><h2 id=第二轮影子图书馆全部连不上>第二轮：影子图书馆，全部连不上<a hidden class=anchor aria-hidden=true href=#第二轮影子图书馆全部连不上>#</a></h2><p>那几个大家都知道的"什么书都有"的站点，我都试了。curl 返回的是 <strong>HTTP 000</strong> —— 连接根本没建立起来，不是 404 也不是 403，就是通不了。</p><p>三个站，同样的结果。这条路直接封死。</p><p>（顺便说：即使能连上，2026 年 5 月才出的书，这类站点上也基本不会有。<strong>扫描、上传、流传是需要时间的</strong>，新书通常要等上一两年。）</p><h2 id=第三轮确认书的身份>第三轮：确认书的身份<a hidden class=anchor aria-hidden=true href=#第三轮确认书的身份>#</a></h2><p>这一步本来该更早做。我让它把书的信息核准了一遍：</p><ul><li>书名、作者、出版年</li><li><strong>ISBN</strong>（这个最关键）</li><li>豆瓣条目号</li></ul><p>结果发现同一系列还有个<strong>六级版本</strong>，ISBN 和条目号都不一样。如果不核 ISBN，很可能后面费半天劲拿到的是另一本。</p><p><strong>教训：找书第一步是确认 ISBN，不是先搜"书名 + pdf"。</strong></p><h2 id=第四轮绕开电子书这个执念>第四轮：绕开"电子书"这个执念<a hidden class=anchor aria-hidden=true href=#第四轮绕开电子书这个执念>#</a></h2><p>搜到最后，找到的可行路子是三条，一条比一条正规：</p><ol><li><p><strong>出版方和背单词 app 的官方合作</strong>
+这本书跟一个常用的背单词 app 有官方合作，书里的全部单词（含派生词）可以通过官方词书导入的方式在 app 里学。免费，而且<strong>内容跟书是一致的</strong>。这是我最后采用的方案。</p></li><li><p><strong>出版社/编者的公众号</strong>
+同系列的另一本（考研版）有过"回复关键词领配套资料"的活动。这类官方渠道通常发的是配套讲义、勘误、音频，未必是整本书，但胜在正规。</p></li><li><p><strong>直接买正版</strong>
+京东、苏宁都有货。说实话我最后也建议自己：<strong>要长期用的书，买纸质的</strong>。</p></li></ol><p>结论写在这里：</p><blockquote><p><strong>一本刚出的新书，网上没有公开流传的免费 PDF，这不是"你没找到"，而是"确实没有"。</strong> 与其继续挖，不如换个方式拿到同样的内容。</p></blockquote><h2 id=附带收获扫描版-pdf-转-epub>附带收获：扫描版 PDF 转 EPUB<a hidden class=anchor aria-hidden=true href=#附带收获扫描版-pdf-转-epub>#</a></h2><p>过程中还有个插曲。我本地有一份同名的扫描版 PDF：<strong>358MB、368 页</strong>。我想在手机上看，就试着转成 EPUB。</p><p>用 Calibre 自带的命令行工具（装了 Calibre 就有）：</p><pre tabindex=0><code>ebook-convert &#34;输入.pdf&#34; &#34;输出.epub&#34;
+</code></pre><p>出来 336MB 的 EPUB，能打开。但有两件事必须说清楚：</p><p><strong>1. 扫描版转 EPUB 只是"图片装进 EPUB"。</strong>
+原 PDF 是纯扫描件，<strong>没有文字层</strong>。所以转出来的 EPUB 每一页还是图片——不能选字、不能搜索、不能调字号、不能重排。在手机上看跟看 PDF 没本质区别，只是文件格式变了。</p><p>想要真正的文字版，必须先对 368 页做 OCR。这活儿量不小，我暂时没做。</p><p><strong>2. <code>--pdf-add-toc</code> 参数在我这个版本会直接报错</strong>，去掉就正常了。Calibre 的命令行参数各版本有差异，报错先试试删参数。</p><h2 id=我从这件事学到的>我从这件事学到的<a hidden class=anchor aria-hidden=true href=#我从这件事学到的>#</a></h2><p><strong>第一，&ldquo;我只要结果"这个指令，前提是结果真的存在。</strong>
+我一开始的假设是"网上肯定有，只是要会找&rdquo;。实际上对一本三个月前出版的书，这个假设是错的。<strong>先判断"有没有"，再花时间"怎么找"。</strong></p><p><strong>第二，先核 ISBN。</strong>
+不然你可能在找一本长得很像的另一本书。</p><p><strong>第三，别被格式绑死。</strong>
+我要的其实是"书里的单词"，不是"一个 PDF 文件"。想清楚这一点，官方 app 导入这条路立刻就浮出来了——而且比 PDF 好用（有发音、有复习计划、能同步）。</p><p><strong>第四，扫描版 ≠ 电子书。</strong>
+没文字层的 PDF，转成任何格式都还是图片。这是我这次最实用的一条认知。</p><h2 id=小结>小结<a hidden class=anchor aria-hidden=true href=#小结>#</a></h2><ul><li>搜索受限时，命令行抓<strong>搜狗</strong>最稳；</li><li>影子图书馆在我这儿全部不通，而且<strong>新书本来就不会有</strong>；</li><li>找书第一步核 <strong>ISBN</strong>；</li><li>优先找<strong>官方渠道</strong>（出版方合作、公众号、买正版），比死磕 PDF 快；</li><li>Calibre <code>ebook-convert</code> 能转格式，但<strong>转不出文字层</strong>。</li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://ggjfx.github.io/tags/%E6%89%BE%E8%B5%84%E6%96%99/>找资料</a></li><li><a href=https://ggjfx.github.io/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/>电子书</a></li><li><a href=https://ggjfx.github.io/tags/calibre/>Calibre</a></li></ul></footer></article></main><footer class=footer><span>© 2026 YH-C · 记录学习,分享踩坑</span> ·
+📮 <a href=https://github.com/ggjfx target=_blank rel=noopener>GitHub</a> ·
+<span>Powered by
+<a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top id=top-link class="top-link hidden" aria-label="go to top" title="Go to Top (Alt + G)" accesskey=g><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevrons-up"><polyline points="17 11 12 6 7 11"/><polyline points="17 18 12 13 7 18"/></svg>
+</a><script>(function(){(location.hostname==="127.0.0.1"||location.hostname==="localhost")&&document.querySelectorAll("#menu a, .logo a").forEach(function(e){var t,n=e.getAttribute("href")||"";try{t=new URL(n,location.href),t.origin!==location.origin&&e.setAttribute("href",t.pathname+t.search+t.hash)}catch{}})})()</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var toplink=document.getElementById("top-link");window.onscroll=function(){const e=window.innerHeight;document.body.scrollTop>e||document.documentElement.scrollTop>e?toplink.classList.remove("hidden"):toplink.classList.add("hidden")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>

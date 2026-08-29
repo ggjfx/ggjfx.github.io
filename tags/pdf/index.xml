@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>PDF on YH-C</title><link>https://ggjfx.github.io/tags/pdf/</link><description>Recent content in PDF on YH-C</description><generator>Hugo</generator><language>zh-cn</language><copyright>2026 YH-C · 记录学习,分享踩坑</copyright><lastBuildDate>Sat, 29 Aug 2026 05:40:00 +0800</lastBuildDate><atom:link href="https://ggjfx.github.io/tags/pdf/index.xml" rel="self" type="application/rss+xml"/><item><title>把 Markdown 变成能打印的复习资料：Edge 无头打印踩坑记</title><link>https://ggjfx.github.io/posts/%E6%8A%8Amarkdown%E5%8F%98%E6%88%90%E8%83%BD%E6%89%93%E5%8D%B0%E7%9A%84%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/</link><pubDate>Sat, 29 Aug 2026 05:40:00 +0800</pubDate><guid>https://ggjfx.github.io/posts/%E6%8A%8Amarkdown%E5%8F%98%E6%88%90%E8%83%BD%E6%89%93%E5%8D%B0%E7%9A%84%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/</guid><description>&lt;h2 id="起因屏幕上看着好打出来一塌糊涂"&gt;起因：屏幕上看着好，打出来一塌糊涂&lt;/h2&gt;
+&lt;p&gt;我在准备专升本，让 AI 帮我整理了一堆知识点，都是 Markdown。在电脑上看没问题，但我想打出来做纸质资料——一打就发现全是问题：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;页眉页脚带着一串文件路径和日期&lt;/li&gt;
+&lt;li&gt;我特意做的&amp;quot;页头信息栏&amp;quot;只出现在第一页&lt;/li&gt;
+&lt;li&gt;一道例题的题目在这一页、图跑到下一页去了&lt;/li&gt;
+&lt;li&gt;数学公式里的上标下标打出来是方框&lt;/li&gt;
+&lt;li&gt;字太小，看着累&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;折腾了几轮以后，现在这条链路稳定了，一条命令从 Markdown 出打印版 PDF 和 Word。这篇把踩过的坑记下来。&lt;/p&gt;
+&lt;h2 id="整体链路"&gt;整体链路&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Markdown 源文件
+├─→ md-to-print.js → A4 打印版 HTML → Edge 无头模式 → PDF
+└─→ md2docx.py（python-docx） → Word（可编辑）
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;两条腿的原因：&lt;strong&gt;PDF 用来打印，Word 留着改&lt;/strong&gt;。资料这种东西一定会改，只出 PDF 早晚要重做。&lt;/p&gt;
+&lt;p&gt;转换脚本我自己写的，支持三个我最需要的参数：字号缩放、装订边距、&amp;ldquo;不许分页&amp;quot;的块。&lt;/p&gt;
+&lt;h2 id="坑-1edge-无头打印的页眉页脚要两个参数才能去掉"&gt;坑 1：Edge 无头打印的页眉页脚，要两个参数才能去掉&lt;/h2&gt;
+&lt;p&gt;命令大概是这样：&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;msedge --headless=new --no-pdf-header-footer --print-to-pdf-no-header --print-to-pdf=&amp;#34;out.pdf&amp;#34; &amp;#34;in.html&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;重点：&lt;strong&gt;&lt;code&gt;--no-pdf-header-footer&lt;/code&gt; 和 &lt;code&gt;--print-to-pdf-no-header&lt;/code&gt; 这两个参数都要给。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;我一开始只给了 &lt;code&gt;--print-to-pdf-no-header&lt;/code&gt;，出来的 PDF &lt;strong&gt;照样带页眉页脚&lt;/strong&gt;。查了半天以为是 CSS 的问题，其实是参数不够。两个都加上就干净了。&lt;/p&gt;
+&lt;h2 id="坑-2必须--start-process--wait否则文件还没生成"&gt;坑 2：必须 &lt;code&gt;-Start-Process -Wait&lt;/code&gt;，否则文件还没生成&lt;/h2&gt;
+&lt;p&gt;PowerShell 里如果直接用 &lt;code&gt;&amp;amp;&lt;/code&gt; 调用 Edge，它&lt;strong&gt;异步返回&lt;/strong&gt;——脚本以为打印完了，下一步去读 PDF，文件还不存在。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Start-Process msedge -ArgumentList $args -Wait &lt;span style="color:#75715e"&gt;# ✅ 一定要 -Wait&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个坑很容易伪装成&amp;quot;Edge 有时候能生成有时候不能&amp;rdquo;，其实是竞态。&lt;/p&gt;</description></item></channel></rss>

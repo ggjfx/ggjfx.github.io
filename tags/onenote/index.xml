@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>OneNote on YH-C</title><link>https://ggjfx.github.io/tags/onenote/</link><description>Recent content in OneNote on YH-C</description><generator>Hugo</generator><language>zh-cn</language><copyright>2026 YH-C · 记录学习,分享踩坑</copyright><lastBuildDate>Sat, 29 Aug 2026 05:20:00 +0800</lastBuildDate><atom:link href="https://ggjfx.github.io/tags/onenote/index.xml" rel="self" type="application/rss+xml"/><item><title>用 PowerShell 把 AI 生成的复习资料写进 OneNote（踩坑全记录）</title><link>https://ggjfx.github.io/posts/%E7%94%A8powershell%E6%8A%8A%E8%B5%84%E6%96%99%E5%86%99%E8%BF%9Bonenote/</link><pubDate>Sat, 29 Aug 2026 05:20:00 +0800</pubDate><guid>https://ggjfx.github.io/posts/%E7%94%A8powershell%E6%8A%8A%E8%B5%84%E6%96%99%E5%86%99%E8%BF%9Bonenote/</guid><description>&lt;h2 id="起因"&gt;起因&lt;/h2&gt;
+&lt;p&gt;我在准备专升本，笔记用的是 OneNote 2016。AI 帮我整理的知识点、出的试卷，一直是生成 HTML 和 PDF——但资料躺在文件夹里，跟我平时看笔记的地方是两个世界。&lt;/p&gt;
+&lt;p&gt;于是有了这个需求：&lt;strong&gt;让 AI 直接把内容写进 OneNote 的分区里&lt;/strong&gt;，我打开笔记本就能看到。&lt;/p&gt;
+&lt;p&gt;最后是做成了：高数分区下面写进去了 &lt;strong&gt;2 页试卷 + 13 页知识点&lt;/strong&gt;（总目录 + 12 章），每章还做成了左右双栏。但过程相当曲折，这篇把坑全记下来，下次不用再撞一遍。&lt;/p&gt;
+&lt;h2 id="技术路线com-接口"&gt;技术路线：COM 接口&lt;/h2&gt;
+&lt;p&gt;OneNote 2016 提供 COM 接口，PowerShell 里一行就能连上：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$on = New-Object -ComObject OneNote.Application
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;能读层级、建页面、写内容、调页面顺序。&lt;strong&gt;注意这是 OneNote 2016 桌面版才有的&lt;/strong&gt;，UWP 那个&amp;quot;OneNote for Windows 10&amp;quot;没有这套接口。&lt;/p&gt;
+&lt;h3 id="坑-0onenote-没开着连不上"&gt;坑 0：OneNote 没开着，连不上&lt;/h3&gt;
+&lt;p&gt;直接 &lt;code&gt;New-Object&lt;/code&gt; 会报 &lt;code&gt;CO_E_SERVER_EXEC_FAILURE&lt;/code&gt;。解决办法是先启动进程再等一会儿：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Start-Process &lt;span style="color:#e6db74"&gt;&amp;#34;C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Start-Sleep -Seconds &lt;span style="color:#ae81ff"&gt;30&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;30 秒不算夸张，我试过 10 秒还是连不上。&lt;/p&gt;
+&lt;h2 id="坑-1最惨的一个别对文件夹调-openhierarchy"&gt;坑 1（最惨的一个）：别对文件夹调 OpenHierarchy&lt;/h2&gt;
+&lt;p&gt;我一开始的思路很自然：笔记本就是个文件夹，那我遍历文件夹、找到 &lt;code&gt;.one&lt;/code&gt; 文件、逐个打开不就行了？&lt;/p&gt;
+&lt;p&gt;于是我对笔记本文件夹调了 &lt;code&gt;OpenHierarchy&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;OneNote 的反应是：它把这个文件夹当成了一个&amp;quot;新笔记本&amp;quot;，然后在里面自动创建了一个默认分区 &lt;code&gt;打开笔记本.one&lt;/code&gt;。&lt;/strong&gt;&lt;/p&gt;</description></item></channel></rss>

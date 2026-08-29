@@ -9,47 +9,38 @@
 🔧 在玩:Linux 基础、网络排障、服务器配置 📚 在学:Vim、抓包、网络专项命令 📮 GitHub:ggjfx"><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"YH-C","url":"https://ggjfx.github.io/","description":"","logo":"https://ggjfx.github.io/favicon.ico","sameAs":[]}</script></head><body class=list id=top><header class=header><nav class=header-nav><div class=logo><a href=/ accesskey=h title="YH-C (Alt + H)">YH-C</a><div class=logo-switches><button id=theme-toggle class=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
 <svg class="moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
 <svg class="sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu class=menu><li><a href=/ title=首页><span class=active>首页</span></a></li><li><a href=/posts/ title=文章><span>文章</span></a></li><li><a href=/tags/ title=标签><span>标签</span></a></li></ul></nav></header><main class=main><section class=home-hero><div class=home-hero-inner><div class=home-avatar aria-hidden=true>🦐</div><div class=home-hero-text><h1 class=home-hero-title>你好,我是 YH-C</h1><p class=home-hero-sub>记录学习 · 分享踩坑 · 慢慢成长</p></div></div><div class="home-about md-content"><p>你好,我是 <strong>YH-C</strong> 👋</p><p>珠海城市职业技术学院云计算专业的一个学生</p><p>一个正在学习 <strong>Linux 与网络技术</strong> 的小白,这里是我的学习笔记与踩坑记录。</p><p>小白学习Linux的过程，每一步都真实踩过坑,也真实爬了出来。</p><ul><li>🔧 在玩:Linux 基础、网络排障、服务器配置</li><li>📚 在学:Vim、抓包、网络专项命令</li><li>📮 GitHub:<a href=https://github.com/ggjfx>ggjfx</a></li></ul></div><div class=home-hero-actions><a class=home-btn href=https://github.com/ggjfx target=_blank rel=noopener>GitHub</a>
-<a class="home-btn home-btn-ghost" href=/posts/>全部文章</a></div></section><section class=home-latest><div class=section-head><h2 class=section-title>最新文章</h2><a class=section-more href=/posts/>查看全部 →</a></div><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>给 OpenClaw 升级"上网"能力：从只能读文字，到会开浏览器</h2></header><div class=entry-content><p>起因：我发现它"上网"其实很弱 之前那篇《部署 OpenClaw 有什么用？》里我说过，我主要拿它干三件事：查资料、找电子书、管理博客。查资料是排第一的，所以"上网"这个能力好不好用，对我特别重要。
-用了一段时间，我越来越觉得它的"上网"有点弱。具体表现是：让它搜东西，结果经常又少又不准；有些网页让它看，它说打不开、抓不到内容。一开始我以为是自己不会用，后来问了才知道——它本来就只有"文字级"的上网能力。
-为什么弱？拆开看就明白了 它上网靠两个工具：
-搜索：用的是一种叫 DuckDuckGo 的免费搜索源，不需要注册、不用花钱。但代价就是：结果少、对中文不友好、还时不时被限流。免费的嘛，能理解。 抓网页：只能把网页的纯文字"读"出来。遇到靠 JavaScript 动态加载的网页（现在很多网站都是），或者需要登录的页面，它就抓瞎了。 最关键的其实是第三点：它没有被授权使用浏览器。OpenClaw 本身带一个浏览器控制功能，可以让 AI 真的打开一个浏览器、像人一样操作网页。但默认配置只给了它"读文字"的工具，没给"开浏览器"的权限，等于有车钥匙却没给他驾照。
-怎么升级的：改配置 + 重启 听起来很复杂，其实就是改一行配置、重启一下服务。过程大概是这样：
-在配置文件里给它加上浏览器工具的权限； 重启 OpenClaw（会断线几秒钟）； 启动一个独立的浏览器，归它管。 这里我踩了一个小坑：第一次重启后浏览器功能没生效，查日志发现是插件没被显式启用，自动启用没注册上。把配置里补上插件开关、再重启一次就好了。
-还有个细节：它用的浏览器是独立的（Edge 的一个独立配置），跟我平时自己用的浏览器完全分开，不会动我的收藏、密码、登录状态。这个设计挺安心的。
-现在能干什么了 升级完，它从"只能读文字"变成了"真的会用浏览器"：
-打开真实网页，等页面渲染完再看内容； 点击、翻页、填表单； 截图给我看； 之前打不开的动态页面，现在也能看了。 为了验证，我让它打开了我自己的博客首页。它不但打开了，还截图发给我，并且读出了页面上的内容：导航栏、最新三篇文章的标题、底部的 Hugo + PaperMod 标识，全都对。
-一点小遗憾 搜索源还是免费的 DuckDuckGo，中文搜索结果依然一般。想更准的话，可以再配一个叫 Kimi 的搜索源（注册拿个 API Key 就行，有免费额度）。这个不急，等哪天觉得搜索不够用了再弄。
-总结 这次升级给我的感受是：OpenClaw 的能力不是定死的，很多"弱"其实只是没配置好。它本来就有浏览器这个"大招"，只是默认没开。改一行配置、重启一下，上网能力就从"文字版"变成了"真人版"。
-以后它帮我查资料、找书，应该会顺手很多了。</p></div><footer class=entry-footer><span title='2026-08-20 20:30:00 +0800 CST'>2026年8月20日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>51 字</span></footer><a class=entry-link aria-label='post link to 给 OpenClaw 升级"上网"能力：从只能读文字，到会开浏览器' href=/posts/%E7%BB%99openclaw%E5%8D%87%E7%BA%A7%E4%B8%8A%E7%BD%91%E8%83%BD%E5%8A%9B/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>部署 OpenClaw 有什么用？——一个新手的使用体验</h2></header><div class=entry-content><p>背景：我为什么要折腾这个 先说下我的水平：云计算专业的学生，会一点 Linux，但命令行、git、部署这些都不熟，全是现学现卖。
-我搭这个博客的时候，发现几乎所有东西都要问 AI：这个命令什么意思、这个报错怎么办、这个配置怎么改。但网页版 AI 有个很烦的问题——换个对话就不记得我了，同一个问题过两天又得从头解释一遍。
-后来我知道了 OpenClaw：一个开源的 AI 助理网关，可以装在自己电脑上。装好之后，它就是一个“属于你自己的 AI”——有记忆、能干活，还能用我平时的聊天软件跟它说话。听起来正是我需要的，就动手试了试。
-OpenClaw 是什么？大白话版 它就是跑在你自己的电脑（或服务器）上的一个程序。装好之后，你可以用 Telegram、微信、Discord 这些聊天软件跟它聊天，背后接的是各种 AI 大模型（Claude、GPT、DeepSeek 这些，甚至本地模型都行）。
-跟“打开 ChatGPT 网页聊天”比，最大的区别是：它是你的，不是租来的。
-数据、聊天记录都在你自己机器上，规则你定； 性格、语气、能干什么，都可以自己配置； 它不只是会聊天，还能帮你干活：查资料、跑命令、定时提醒、读写文件…… 打个比方：网页版 AI 像“去别人家借东西”，OpenClaw 是“在自己家养了一个管家”。
-它是怎么工作的 其实原理不复杂：
-你常用的聊天软件
-Telegram / 微信 / Discord / WebChat ↓ OpenClaw Gateway
-跑在你自己的机器/服务器上 ↓ AI 大模型
-（Claude / GPT / DeepSeek） 记忆系统
-（长期记忆） 工具/技能
-（搜索 / 命令 / 文件） 拆开说就三步：
-你在聊天软件里发消息（比如“帮我看下这个报错”）； 网关收到后交给 AI，AI 可以查记忆、调用工具（搜索、执行命令、读文件）； 结果再发回你的聊天窗口，就像跟朋友聊天一样。 我这段时间真实用到了什么 说几个我真在用的场景，按用得多不多排的：
-...</p></div><footer class=entry-footer><span title='2026-08-13 19:11:00 +0800 CST'>2026年8月13日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>164 字</span></footer><a class=entry-link aria-label="post link to 部署 OpenClaw 有什么用？——一个新手的使用体验" href=/posts/%E9%83%A8%E7%BD%B2openclaw%E6%9C%89%E4%BB%80%E4%B9%88%E7%94%A8/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>从零搭建个人博客:今天踩过的坑全记录</h2></header><div class=entry-content><p>背景 今天从零搭了一个个人博客:用 Hugo(静态网站生成器)+ PaperMod(主题)搭建,文章在 Obsidian(笔记软件)里写,最后部署到 GitHub Pages 免费托管。
-为什么这么组合?因为这套流程的好处是:写文章就像平时记笔记一样简单,保存后一键发布,全世界都能看到,而且完全免费、没有服务器费用、速度还很快。
-听起来很美好,对吧?但实际走下来,一共踩了 7 个坑,每一个都真实经历过、排查过、解决过。这篇文章按 现象 → 根源 → 解决 → 教训 四步拆解每个坑,希望看到的人能少走弯路。
-💡 阅读说明:标签颜色 —— 现象 / 根源 / 解决 / 教训
-坑 1:发布后网页没有样式,白底一片 现象
-网站构建、推送都显示成功,但打开线上网址,页面是纯文字白底——标题、排版、颜色全没了,就像一份没排版的 Word 文档。奇怪的是,本地预览完全正常,样式好好的。
-根源
-网站生成时,每个样式文件都附带了一个"完整性校验值"(SRI,类似文件的指纹)。浏览器加载样式前会先算一遍指纹,对不上就拒绝加载整个样式表。
-问题出在推送环节:Windows 上的文件换行符是 CRLF(回车+换行),而 git 推送到 GitHub 时,默认会自动转成 LF(只换行)。这一转,文件字节就变了,指纹对不上 → 浏览器拒收样式 → 白屏。
-一句话:指纹是按 Windows 版文件算的,线上却是 Unix 版文件,对不上。
-解决
-在配置文件里关掉完整性校验:
-[params.assets] disableFingerprinting = true 这里还藏着一个更隐蔽的坑:这个配置必须放在配置文件最末尾。有一次我把它写在中间,它把后面所有的配置都"吞"进自己名下,导致内容目录失效,构建出来文章全没了——当时吓出一身冷汗,重建才找回。
-教训
-配置文件(Toml 格式)里,“子配置块"必须放在文件末尾,否则会吞掉后面的键值。 遇到"本地好好的,线上坏了"的问题,优先怀疑:编码、换行、校验这类"看不见的差异”。 就像做饭:锅里的菜和端上桌的菜是同一份,但如果装盘时被换了调味料,味道就不对了。 坑 2:本地预览点文章,却跳到了线上网站 现象
-...</p></div><footer class=entry-footer><span title='2026-08-12 21:27:00 +0800 CST'>2026年8月12日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>309 字</span></footer><a class=entry-link aria-label="post link to 从零搭建个人博客:今天踩过的坑全记录" href=/posts/%E4%BB%8E%E9%9B%B6%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E4%BB%8A%E5%A4%A9%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91%E5%85%A8%E8%AE%B0%E5%BD%95/></a></article></section></main><footer class=footer><span>© 2026 YH-C · 记录学习,分享踩坑</span> ·
+<a class="home-btn home-btn-ghost" href=/posts/>全部文章</a></div></section><section class=home-latest><div class=section-head><h2 class=section-title>最新文章</h2><a class=section-more href=/posts/>查看全部 →</a></div><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>找一本 2026 年刚出的书，我试了十个渠道</h2></header><div class=entry-content><p>起因 备考要用一本 2026 年新出的英语书。我给 AI 助手下的指令很粗暴：“我只要结果，能拿到这本书就行。”
+结果这件事花的时间远超预期，而且最后的答案跟我一开始设想的完全不一样。整个过程挺有代表性，记下来。
+第一轮：搜索引擎，全军覆没 先说搜索这一层的实测结果（同一天、同一台机器、同一个网络）：
+渠道 结果 内置搜索工具 一直失败 / 超时 Bing 结果被过滤，返回的内容跟书完全无关 Google 访问受限 百度 访问受限 360 搜索 访问受限 搜狗（sogou.com） ✅ 能用 B 站搜索 API HTTP 412，被风控 所以有了一条经验：在我这个网络环境下，用命令行抓搜索结果，搜狗是最稳的那个。 已经记进工具笔记了，以后找东西先走搜狗。
+第二轮：影子图书馆，全部连不上 那几个大家都知道的"什么书都有"的站点，我都试了。curl 返回的是 HTTP 000 —— 连接根本没建立起来，不是 404 也不是 403，就是通不了。
+三个站，同样的结果。这条路直接封死。
+（顺便说：即使能连上，2026 年 5 月才出的书，这类站点上也基本不会有。扫描、上传、流传是需要时间的，新书通常要等上一两年。）
+第三轮：确认书的身份 这一步本来该更早做。我让它把书的信息核准了一遍：
+书名、作者、出版年 ISBN（这个最关键） 豆瓣条目号 结果发现同一系列还有个六级版本，ISBN 和条目号都不一样。如果不核 ISBN，很可能后面费半天劲拿到的是另一本。
+教训：找书第一步是确认 ISBN，不是先搜"书名 + pdf"。
+第四轮：绕开"电子书"这个执念 搜到最后，找到的可行路子是三条，一条比一条正规：
+出版方和背单词 app 的官方合作 这本书跟一个常用的背单词 app 有官方合作，书里的全部单词（含派生词）可以通过官方词书导入的方式在 app 里学。免费，而且内容跟书是一致的。这是我最后采用的方案。
+...</p></div><footer class=entry-footer><span title='2026-08-29 05:45:00 +0800 CST'>2026年8月29日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>149 字</span></footer><a class=entry-link aria-label="post link to 找一本 2026 年刚出的书，我试了十个渠道" href=/posts/%E6%89%BE%E4%B8%80%E6%9C%AC%E5%88%9A%E5%87%BA%E7%9A%84%E4%B9%A6%E6%88%91%E8%AF%95%E4%BA%86%E5%8D%81%E4%B8%AA%E6%B8%A0%E9%81%93/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>把 Markdown 变成能打印的复习资料：Edge 无头打印踩坑记</h2></header><div class=entry-content><p>起因：屏幕上看着好，打出来一塌糊涂 我在准备专升本，让 AI 帮我整理了一堆知识点，都是 Markdown。在电脑上看没问题，但我想打出来做纸质资料——一打就发现全是问题：
+页眉页脚带着一串文件路径和日期 我特意做的"页头信息栏"只出现在第一页 一道例题的题目在这一页、图跑到下一页去了 数学公式里的上标下标打出来是方框 字太小，看着累 折腾了几轮以后，现在这条链路稳定了，一条命令从 Markdown 出打印版 PDF 和 Word。这篇把踩过的坑记下来。
+整体链路 Markdown 源文件 ├─→ md-to-print.js → A4 打印版 HTML → Edge 无头模式 → PDF └─→ md2docx.py（python-docx） → Word（可编辑） 两条腿的原因：PDF 用来打印，Word 留着改。资料这种东西一定会改，只出 PDF 早晚要重做。
+转换脚本我自己写的，支持三个我最需要的参数：字号缩放、装订边距、“不许分页"的块。
+坑 1：Edge 无头打印的页眉页脚，要两个参数才能去掉 命令大概是这样：
+msedge --headless=new --no-pdf-header-footer --print-to-pdf-no-header --print-to-pdf="out.pdf" "in.html" 重点：--no-pdf-header-footer 和 --print-to-pdf-no-header 这两个参数都要给。
+我一开始只给了 --print-to-pdf-no-header，出来的 PDF 照样带页眉页脚。查了半天以为是 CSS 的问题，其实是参数不够。两个都加上就干净了。
+坑 2：必须 -Start-Process -Wait，否则文件还没生成 PowerShell 里如果直接用 & 调用 Edge，它异步返回——脚本以为打印完了，下一步去读 PDF，文件还不存在。
+Start-Process msedge -ArgumentList $args -Wait # ✅ 一定要 -Wait 这个坑很容易伪装成"Edge 有时候能生成有时候不能”，其实是竞态。
+...</p></div><footer class=entry-footer><span title='2026-08-29 05:40:00 +0800 CST'>2026年8月29日</span>&nbsp;·&nbsp;<span>2 分钟</span>&nbsp;·&nbsp;<span>229 字</span></footer><a class=entry-link aria-label="post link to 把 Markdown 变成能打印的复习资料：Edge 无头打印踩坑记" href=/posts/%E6%8A%8Amarkdown%E5%8F%98%E6%88%90%E8%83%BD%E6%89%93%E5%8D%B0%E7%9A%84%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/></a></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>不花钱做 OCR：用 Windows 自带的识别引擎批量识别网课截图</h2></header><div class=entry-content><p>起因：AI 看不了图 我上网课习惯截图，一节课下来十几张。我想让 AI 帮我把截图整理成笔记，结果卡在第一步：我用的模型是纯文本的，看不了图片。
+思路很自然：那就先 OCR 成文字，再喂给它。
+但我不想为这个花钱、也不想传到别人的服务器上（截图里有我的账号界面）。查了一圈发现：Windows 系统本身就自带 OCR 引擎，中文识别是现成的，一分钱不用花，也不联网。
+Windows 自带 OCR 怎么调 系统里有个 WinRT 的 OCR 接口（Windows.Media.Ocr），PowerShell 可以直接调。最关键的是类型加载那一行，不写的话后面全报错：
+[Windows.Globalization.Language, Windows.Foundation, ContentType = WindowsRuntime] | Out-Null $lang = New-Object Windows.Globalization.Language 'zh-Hans-CN' $engine = [Windows.Media.Ocr.OcrEngine]::TryCreateFromLanguage($lang) zh-Hans-CN 是简体中文引擎。想知道你机器上有哪些语言可用，可以列 AvailableRecognizerLanguages——一般装了中文语言包就有。
+然后就是：图片 → SoftwareBitmap → RecognizeAsync → 拿 Text。异步调用在 PowerShell 里稍微绕一点，包一层等待就行。
+提高识别率的一个笨办法：放大 2 倍 第一次直接识别，效果一般。后来我在 OCR 之前先把图片等比放大 2 倍（GDI+ 双三次插值），识别率明显提升。
+原理不难理解：OCR 引擎对小字号有下限，网课截图里的正文本来就不大，放大等于给它喂更清楚的笔画。代价是慢一点，但 17 张图也就几十秒。
+搞定之后，17 张直播截图批量跑出 17 个 txt 文件，中文正文基本能用。
+真正的难题：超长截图 比这个麻烦得多的是另一批图——我把和 AI 的对话截成了长截图，尺寸是 560 宽 × 14000~23000 高。
+...</p></div><footer class=entry-footer><span title='2026-08-29 05:30:00 +0800 CST'>2026年8月29日</span>&nbsp;·&nbsp;<span>1 分钟</span>&nbsp;·&nbsp;<span>206 字</span></footer><a class=entry-link aria-label="post link to 不花钱做 OCR：用 Windows 自带的识别引擎批量识别网课截图" href=/posts/%E4%B8%8D%E8%8A%B1%E9%92%B1%E5%81%9Aocr-windows%E8%87%AA%E5%B8%A6%E8%AF%86%E5%88%AB%E5%BC%95%E6%93%8E/></a></article></section></main><footer class=footer><span>© 2026 YH-C · 记录学习,分享踩坑</span> ·
 📮 <a href=https://github.com/ggjfx target=_blank rel=noopener>GitHub</a> ·
 <span>Powered by
 <a href="https://gohugo.io/?utm_source=papermod" rel=noopener target=_blank>Hugo</a> &
